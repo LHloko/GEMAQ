@@ -19,7 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'cpf',
         'email',
+        'phone',
         'password',
     ];
 
@@ -44,5 +46,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+    * Pedidos realizados pelo usuário.
+    */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

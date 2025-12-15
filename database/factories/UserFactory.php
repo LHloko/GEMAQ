@@ -25,6 +25,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'cpf' => fake()->unique()->numerify('###########'),  //Mudei isso aqui pra validar o cpf mas vou comentar o userseeder pra rodar o meu
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
